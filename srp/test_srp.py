@@ -6,7 +6,7 @@ import os.path
 import os
 import sys
 import time
-import thread
+import _thread as thread
 
 
 this_dir = os.path.dirname( os.path.abspath(__file__) )
@@ -17,7 +17,7 @@ if not os.path.exists( build_dir ):
     print('Please run "python setup.py build" prior to running tests')
     sys.exit(1)
 
-plat_dirs = [ d for d in os.listdir('build') if d.startswith('lib') ]
+plat_dirs = [ d for d in os.listdir(build_dir) if d.startswith('lib') ]
 
 if not len(plat_dirs) == 1:
     print('Unexpected build result... aborting')
